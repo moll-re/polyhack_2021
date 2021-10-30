@@ -1,5 +1,6 @@
 import tortilla
 import requests
+import pandas as pd
 
 
 class SBBWrapper:
@@ -25,7 +26,4 @@ class SBBWrapper:
             # 'X-Conversation-Id': str(conv_id),
         }
         return auth
-    
 
-    def get_closest_station(self, station_name):
-        pass

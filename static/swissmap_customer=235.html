@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_092483588e2c4ac5924c3622b8af1134 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_092483588e2c4ac5924c3622b8af1134" ></div>
+        
+</body>
+<script>    
+    
+            var map_092483588e2c4ac5924c3622b8af1134 = L.map(
+                "map_092483588e2c4ac5924c3622b8af1134",
+                {
+                    center: [46.8132, 8.2242],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7.6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3ec4b3b1853e4987b667905c6ee46bd4 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 12, "maxZoom": 12, "minZoom": 6, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_092483588e2c4ac5924c3622b8af1134);
+        
+    
+            var marker_c066dc7694ab4b9e9fd55be869c0fb43 = L.marker(
+                [46.8132, 8.2242],
+                {}
+            ).addTo(map_092483588e2c4ac5924c3622b8af1134);
+        
+    
+            var icon_01dba90ea2af47ea88ed77a52322effb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c066dc7694ab4b9e9fd55be869c0fb43.setIcon(icon_01dba90ea2af47ea88ed77a52322effb);
+        
+    
+        var popup_4db25cb18ec545efbde0b7251804cae4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_edaa011c18c648a093b0f3b96bc9e7d1 = $(`<div id="html_edaa011c18c648a093b0f3b96bc9e7d1" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_4db25cb18ec545efbde0b7251804cae4.setContent(html_edaa011c18c648a093b0f3b96bc9e7d1);
+        
+
+        marker_c066dc7694ab4b9e9fd55be869c0fb43.bindPopup(popup_4db25cb18ec545efbde0b7251804cae4)
+        ;
+
+        
+    
+    
+            var marker_a70d653c5f63441bbbdda56d55a1fd9a = L.marker(
+                [46.11654, 7.445683],
+                {}
+            ).addTo(map_092483588e2c4ac5924c3622b8af1134);
+        
+    
+            var icon_dba68870c65f416583684126793cfbb4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a70d653c5f63441bbbdda56d55a1fd9a.setIcon(icon_dba68870c65f416583684126793cfbb4);
+        
+    
+        var popup_0d9507747ef94271a44340243a8aed20 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_304ce481b37f4636ac95f95ef203e2a9 = $(`<div id="html_304ce481b37f4636ac95f95ef203e2a9" style="width: 100.0%; height: 100.0%;">Zermatt</div>`)[0];
+            popup_0d9507747ef94271a44340243a8aed20.setContent(html_304ce481b37f4636ac95f95ef203e2a9);
+        
+
+        marker_a70d653c5f63441bbbdda56d55a1fd9a.bindPopup(popup_0d9507747ef94271a44340243a8aed20)
+        ;
+
+        
+    
+</script>
