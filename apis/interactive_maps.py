@@ -38,7 +38,7 @@ class SwissMap:
 
 
 # Working examples for travel history map and destination map
-
+"""
 # Hard coded location list
 location_list = [('Center of Switzerland' , [46.8132, 8.2242]), ('Zermatt', [46.11654, 7.445683])]
 customer_id = 235
@@ -50,3 +50,4 @@ thmap.travel_history_map(customer_id, location_list)
 # Destination
 dmap = SwissMap()
 dmap.destination_map(customer_id, location_list[0], location_list[1])
+"""
