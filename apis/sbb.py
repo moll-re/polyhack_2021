@@ -26,3 +26,6 @@ class SBBWrapper:
         }
         return auth
     
+
+    def get_closest_station(self, station_name):
+        pass

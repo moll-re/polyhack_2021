@@ -6,3 +6,4 @@ SBB = sbb.SBBWrapper()
 ret = SBB.wrapper.locations.get(params={"name":"Zürich"})
 print(ret[:3])
 
+# def load_events()
