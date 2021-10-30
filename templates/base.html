@@ -16,17 +16,11 @@
 
     <script src="static/index.js"></script>
 </head>
+
 <body>
 {% include "sidebar.html" %}
-<div class="container-fluid">
-    <h1 class="display-3">Physical doodling</h1>
-    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4 p-1">
-        <h1 class="display-3">Welcome {{ context.user }}</h1>
-
-        <div class="col">
-            <div class="list">
-        </div>     
-    </div>
+<div class="container-fluid content">
+    {% block content %}{% endblock %}
 </div>
 </body>
 </html>
