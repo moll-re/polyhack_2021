@@ -23,9 +23,9 @@ class SwissMap:
     def destination_map(self, customer_id, own_location, destination):
         local_m = self.m
         folium.Marker(
-            location=destination[1], # coordinates for the marker
-            popup=destination[0], # pop-up label for the marker
-            icon=folium.Icon(color="green")
+            location=own_location[1], # coordinates for the marker
+            popup=own_location[0], # pop-up label for the marker
+            icon=folium.Icon(color="blue")
         ).add_to(local_m)
         folium.Marker(
             location=destination[1], # coordinates for the marker
