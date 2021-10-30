@@ -1,9 +1,69 @@
 .bg-primary .btn-primary .btn-primary:hover{
-    border-color: red;
-    background-color: red !important;
+    border-color: #D50505;
+    background-color: #D50505 !important;
 
 }
-
+.navbar-custom {
+    background-color: #D50505;
+}
 * {
     border-radius: 0 !important;
+}
+.content {
+    margin-top: 5rem;
+}
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.video-background-holder {
+    position: relative;
+    background-color: black;
+    height: 20vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .video-background-holder video {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .video-background-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .video-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+
+.ml4 .letters {
+    position: absolute;
+    margin: auto;
+    left: 6.7em;
+    top: 0.75em;
+    opacity: 0; 
 }
