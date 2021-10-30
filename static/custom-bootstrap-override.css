@@ -1,0 +1,9 @@
+.bg-primary .btn-primary .btn-primary:hover{
+    border-color: red;
+    background-color: red !important;
+
+}
+
+* {
+    border-radius: 0 !important;
+}
