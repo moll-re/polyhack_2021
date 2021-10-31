@@ -7,8 +7,7 @@ class User:
     group_size = 0
     min_age = 0
     max_age = 0
-    travel_history = [] # (Name, coordinates)
-    co2_savings = []
+    travel_history = [] # (list of Events)
     
     def __init__(self, **kwargs):
         self.id = kwargs.pop("id")
@@ -27,7 +26,8 @@ class User:
     
     @property
     def total_co2_savings(self):
-        return sum(self.co2_savings)
+        return sum([e.co2_savings for e in self.travel_history])
+    
 
     
 class Users:

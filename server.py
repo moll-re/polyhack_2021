@@ -3,11 +3,16 @@ import random
 
 from apis.interactive_maps import SwissMap
 from models.user import Users
+from models.event import Events
+import plotly.graph_objects as go
+from plotly.offline import plot
 
 USERBASE = Users()
-USERBASE.add_user(id=239842123, name="Remy", event_preferences=["hiking","skiing"], event_blacklist = [], home_coordinates=[0,0], group_size=1, min_age=20, max_age=20)
 MAP = SwissMap()
+EVENTBASE = Events()
 
+import dummy_data
+dummy_data.populate_data(USERBASE, EVENTBASE)
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
@@ -30,11 +35,30 @@ def index():
 def profile():
     uid = session["user_id"]
     user = USERBASE.get_by_id(uid)
+    days, co2_savings = [], []
+
+    for e in user.travel_history:
+        days.append(e.date.replace(day=1))
+        co2_savings.append(e.co2_savings)
+
+    fig = go.Figure()
+    fig.layout.update(
+        xaxis = {'showgrid': False},
+        yaxis = {'showgrid': False},
+        showlegend=False,
+        margin=dict(l=0, r=0, t=0, b=0),
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        colorway=["#D50505", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
+    )
+    fig.add_trace(go.Bar(x=days, y=co2_savings))
+    plot_div = plot(fig, output_type='div', include_plotlyjs=False)
 
     context = {
-        "map_path" : MAP.travel_history_map(user.id, user.travel_history)
+        "map_path" : MAP.travel_history_map(user.id, user.travel_history),
+        "plotly_html" : plot_div
     }
-    return render_template("user_detail.html", conbtext=context, user=user)
+    return render_template("user_detail.html", context=context, user=user)
 
 
 

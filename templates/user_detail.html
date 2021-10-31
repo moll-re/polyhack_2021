@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>.modebar{display: none !important;}</style>
 
 <div class="card mb-4 shadow">
     <div class="card-body">
@@ -7,24 +9,19 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">id: {{user.id }}</li>
         <li class="list-group-item">total trips: {{ user.number_of_trips }}</li>
-        <li class="list-group-item">total CO2 saved: {{user.co2_economies }}</li>
+        <li class="list-group-item">total CO2 saved: {{ user.total_co2_savings }}</li>
       </ul>
     </div>
 </div>
 <div class="card mb-4 shadow">
     <div class="card-body">
         <h5 class="card-title">Previous destinations</h5>
-        <iframe src="/static/{{ context.map_path }}"></iframe>
+        <iframe src="{{ context.map_path }}" style="width: 100%; min-height: 23rem;"></iframe>
     </div>
 </div>
 <div class="card mb-4 shadow">
     <div class="card-body">
-      <h5 class="card-title">Travel overview</h5>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">id: {{user.id }}</li>
-        <li class="list-group-item">total trips: {{ user.trips }}</li>
-        <li class="list-group-item">total CO2 saved: {{user.total_co2_savings }}</li>
-      </ul>
+      {{ context.plotly_html|safe }}
     </div>
 </div>
 {% endblock %}

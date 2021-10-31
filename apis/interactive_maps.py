@@ -3,13 +3,14 @@ import folium
 
 class SwissMap:
     def __init__(self) -> None:
-        self.m = folium.Map(location=[46.8132, 8.2242], tiles='OpenStreetMap', zoom_start=7.6, min_zoom = 6, max_zoom = 12)
+        self.m = folium.Map(location=[46.8132, 8.2242], tiles='OpenStreetMap', zoom_start=6.5, min_zoom = 6, max_zoom = 12)
     
 
     # Returns travel map of customer as html string
-    def travel_history_map(self, customer_id, location_list):
+    def travel_history_map(self, customer_id, travel_history):
         local_m = self.m
-        for place, coordinates in location_list:
+        for e in travel_history:
+            place, coordinates = e.location_name, e.location_coordinates
             folium.Marker(
                 location=coordinates, # coordinates for the marker
                 popup=place, # pop-up label for the marker

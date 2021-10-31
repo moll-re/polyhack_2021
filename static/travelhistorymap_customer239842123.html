@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5ba084a655cd4fc584236f2425f4de29 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_5ba084a655cd4fc584236f2425f4de29" ></div>
+        
+</body>
+<script>    
+    
+            var map_5ba084a655cd4fc584236f2425f4de29 = L.map(
+                "map_5ba084a655cd4fc584236f2425f4de29",
+                {
+                    center: [46.8132, 8.2242],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6.5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_40152bdb738846ba8477c732f027648d = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 12, "maxZoom": 12, "minZoom": 6, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var marker_0660c49d8fb24ff1b0409062f4679504 = L.marker(
+                [46.8132, 8.2242],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_c7f93358bcb44e67a5c367b728b8e3e5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0660c49d8fb24ff1b0409062f4679504.setIcon(icon_c7f93358bcb44e67a5c367b728b8e3e5);
+        
+    
+        var popup_055041826c6e48abb64946ad1fd0e85c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_10f0fccc127d44768c1d1c9cba178d7e = $(`<div id="html_10f0fccc127d44768c1d1c9cba178d7e" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_055041826c6e48abb64946ad1fd0e85c.setContent(html_10f0fccc127d44768c1d1c9cba178d7e);
+        
+
+        marker_0660c49d8fb24ff1b0409062f4679504.bindPopup(popup_055041826c6e48abb64946ad1fd0e85c)
+        ;
+
+        
+    
+    
+            var marker_7591da9e5d7e4359a88df76b3ca54633 = L.marker(
+                [46.0, 8.0],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_feda126eb8ff45d9bbfc7cba013e3274 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7591da9e5d7e4359a88df76b3ca54633.setIcon(icon_feda126eb8ff45d9bbfc7cba013e3274);
+        
+    
+        var popup_60efbb58821e48d09d5f097eef3f26e0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ae4580e3548843a4b867da474fe9cd08 = $(`<div id="html_ae4580e3548843a4b867da474fe9cd08" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_60efbb58821e48d09d5f097eef3f26e0.setContent(html_ae4580e3548843a4b867da474fe9cd08);
+        
+
+        marker_7591da9e5d7e4359a88df76b3ca54633.bindPopup(popup_60efbb58821e48d09d5f097eef3f26e0)
+        ;
+
+        
+    
+    
+            var marker_8853064d921840c1af5740f4ee2e34e6 = L.marker(
+                [46.8132, 9.0],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_ecdd50362a7443c0873edecc52dc57fd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8853064d921840c1af5740f4ee2e34e6.setIcon(icon_ecdd50362a7443c0873edecc52dc57fd);
+        
+    
+        var popup_18d1efa0560d451985de1860e853f20d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dc83f40370374bc5b716197a6d8bf3e5 = $(`<div id="html_dc83f40370374bc5b716197a6d8bf3e5" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_18d1efa0560d451985de1860e853f20d.setContent(html_dc83f40370374bc5b716197a6d8bf3e5);
+        
+
+        marker_8853064d921840c1af5740f4ee2e34e6.bindPopup(popup_18d1efa0560d451985de1860e853f20d)
+        ;
+
+        
+    
+    
+            var marker_f776dd130d2c41b4a4403cc20b089197 = L.marker(
+                [47.0, 8.2242],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_eebb26101c2541aab20288eeba3fd092 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f776dd130d2c41b4a4403cc20b089197.setIcon(icon_eebb26101c2541aab20288eeba3fd092);
+        
+    
+        var popup_7e654904d22f43bf9c55611b4a2d8f1a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a6bd9db8dace4c23ac8bd4932f23e9b2 = $(`<div id="html_a6bd9db8dace4c23ac8bd4932f23e9b2" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_7e654904d22f43bf9c55611b4a2d8f1a.setContent(html_a6bd9db8dace4c23ac8bd4932f23e9b2);
+        
+
+        marker_f776dd130d2c41b4a4403cc20b089197.bindPopup(popup_7e654904d22f43bf9c55611b4a2d8f1a)
+        ;
+
+        
+    
+    
+            var marker_531b4d892c1248528bed9e28c45a0071 = L.marker(
+                [40.8132, 8.2242],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_207de4a422dd47d2ae255822073a20c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_531b4d892c1248528bed9e28c45a0071.setIcon(icon_207de4a422dd47d2ae255822073a20c5);
+        
+    
+        var popup_2e281073197241d69b565e29b7c30971 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_69e3f6cccf894922bb51d399f0f14421 = $(`<div id="html_69e3f6cccf894922bb51d399f0f14421" style="width: 100.0%; height: 100.0%;">Center of Switzerland</div>`)[0];
+            popup_2e281073197241d69b565e29b7c30971.setContent(html_69e3f6cccf894922bb51d399f0f14421);
+        
+
+        marker_531b4d892c1248528bed9e28c45a0071.bindPopup(popup_2e281073197241d69b565e29b7c30971)
+        ;
+
+        
+    
+    
+            var marker_106fb6cf83a745b7b8d01d3ac5399d23 = L.marker(
+                [46.11654, 10.445683],
+                {}
+            ).addTo(map_5ba084a655cd4fc584236f2425f4de29);
+        
+    
+            var icon_bdbfc792d78445ef9257d0e9dc2e53a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_106fb6cf83a745b7b8d01d3ac5399d23.setIcon(icon_bdbfc792d78445ef9257d0e9dc2e53a6);
+        
+    
+        var popup_5df9394c37c94f26bb59cfaf5b5216e5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b63d6c6945b546349c24295a4bebf7ca = $(`<div id="html_b63d6c6945b546349c24295a4bebf7ca" style="width: 100.0%; height: 100.0%;">Zermatt</div>`)[0];
+            popup_5df9394c37c94f26bb59cfaf5b5216e5.setContent(html_b63d6c6945b546349c24295a4bebf7ca);
+        
+
+        marker_106fb6cf83a745b7b8d01d3ac5399d23.bindPopup(popup_5df9394c37c94f26bb59cfaf5b5216e5)
+        ;
+
+        
+    
+</script>
