@@ -9,7 +9,12 @@ class SwissMap:
     # Returns travel map of customer as html string
     def travel_history_map(self, customer_id, travel_history):
         local_m = self.m
+
+        counter = 0 # introduce counter for better overview 
         for e in travel_history:
+            counter += 1
+            if counter > 5:
+                break
             place, coordinates = e.location_name, e.location_coordinates
             folium.Marker(
                 location=coordinates, # coordinates for the marker
