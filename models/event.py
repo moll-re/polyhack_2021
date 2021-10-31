@@ -1,3 +1,4 @@
+from .travel_route import TravelRoute
 
 class Event:
     id = 0
@@ -10,9 +11,9 @@ class Event:
     weather_requirements = 0
     date = ""
     image_path = "fallback.jpg"
-    duration = "" # datetime object
-    trip_to = "" # Trip object
-    trip_back = ""
+    activity_duration = "" # datetime object
+    trip_to = TravelRoute(0,0)
+    trip_back = TravelRoute(0,0)
 
     def __init__(self, **kwargs):
         self.id = kwargs.pop("id")
@@ -21,6 +22,8 @@ class Event:
         self.location_coordinates = kwargs.pop("location_coordinates")
         self.date = kwargs.pop("date")
         self.description = kwargs.pop("description")
+        self.activity_duration = kwargs.pop("activity_duration")
+        self.image_path = kwargs.pop("image_path")
 
     
     def find_optimal_trip(self):
@@ -36,10 +39,8 @@ class Event:
 
     @property
     def co2_savings(self):
-        try:
-            return self.trip_to.co2_savings + self.trip_back.co2_savings
-        except:
-            return 5
+        return self.trip_to.co2_savings + self.trip_back.co2_savings
+        
     @property
     def rating(self):
         return int(sum([r.rating for r in self.reviews]) / len(self.reviews))
@@ -47,6 +48,15 @@ class Event:
     @property
     def nreviews(self):
         return len(self.reviews)
+
+    @property
+    def total_duration(self):
+        s = (self.activity_duration + self.trip_back.duration + self.trip_to.duration).seconds
+        hours, remainder = divmod(s, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        return '{:02} h {:02}'.format(int(hours), int(minutes))
+
+
 
 
 class Review:
