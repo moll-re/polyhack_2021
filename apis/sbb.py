@@ -1,6 +1,5 @@
 import tortilla
 import requests
-import pandas as pd
 
 
 class SBBWrapper:
@@ -27,3 +26,9 @@ class SBBWrapper:
         }
         return auth
 
+
+#Example
+query = {'name':'Kreuzlingen'}
+
+sbb = SBBWrapper()
+print(sbb.wrapper.locations.get(params=query))

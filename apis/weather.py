@@ -1,5 +1,8 @@
 import tortilla
 import requests
+import numpy as np
+import datetime
+
 
 class WeatherWrapper:
     def __init__(self) -> None:
@@ -13,7 +16,6 @@ class WeatherWrapper:
             'client_secret': '59603134536c874e47245b4de403e3d3'
         }
 
-        #response = requests.post('https://sso-int.sbb.ch/auth/realms/SBB_Public/protocol/openid-connect/token', data=token_query).json()
         response = requests.post('https://sso.sbb.ch/auth/realms/SBB_Public/protocol/openid-connect/token', data=token_query).json()
         token = response["access_token"]
         auth = {
@@ -23,6 +25,50 @@ class WeatherWrapper:
         }
         return auth
 
+
+class WeatherScoreCalculator:
+    def calc_weather_score(self, event):
+        now = datetime.datetime.now().replace(microsecond=0).isoformat()
+        location = event.location_coordinates
+        location_string = f'{location[0]}'+f','+f'{location[1]}'
+
+        weather = WeatherWrapper()
+        raw_weather_data = weather.wrapper.get( now + 'ZP1D:PT3H/weather_code_6h:idx/'+ location_string + '/json')
+        raw_extracted_weather = raw_weather_data['data'][0]['coordinates'][0]['dates']
+
+        # Weather Score Calculation
+        weather_score = []
+        for weather_dict in raw_extracted_weather:
+            weather_score.append(weather_dict['value'])
+        weather_score = np.array(weather_score)
+        mean_weather_score = weather_score.mean()
+
+        return mean_weather_score
+
+
+# Example. Event is an event object, (not defined in this file).
+"""
+wcalc = WeatherScoreCalculator()
+print(wcalc.calc_weather_score(event))
+"""
+
+
+# Obsolete
+"""
+now = datetime.datetime.now().replace(microsecond=0).isoformat()
+
 weather = WeatherWrapper()
-print('TEST')
-print(weather.wrapper.get('2021-07-12T00:00ZP50D:PT30M/sfc_pressure:hPa,msl_pressure:hPa/47.36669,8.54858+47.35209,7.90779/json'))
+raw_weather_data = weather.wrapper.get( now + 'ZP1D:PT3H/weather_code_6h:idx/47.36669,8.54858/json')
+raw_extracted_weather = raw_weather_data['data'][0]['coordinates'][0]['dates']
+
+print(now)
+print(raw_extracted_weather)
+
+# Weather Score Calculation
+weather_score = []
+for weather_dict in raw_extracted_weather:
+    weather_score.append(weather_dict['value'])
+weather_score = np.array(weather_score)
+mean_weather_score = weather_score.mean()
+print(mean_weather_score)
+"""
