@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="display-3">{{ event.name }}</h1>
+<div class="card mb-4 shadow">
+    <!-- <div class="card-header"> -->
+        <img src="/static/{{ event.image_path }}" class="card-img-top" alt="...">
+    <!-- </div> -->
+    <div class="sep"></div>
+    <div class="card-body">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-clock"></i> Total duration: {{event.duration }}</li>
+        <li class="list-group-item"><i class="far fa-map"></i> {{ event.location_name }}</li>
+        <li class="list-group-item">{{ event.description }}</li>
+    </ul>
+    <span class="d-flex flex-row-reverse"><a href="" class="btn btn-primary">Book now</a></span>
+    </div>
+</div>
+<h1 class="display-4">Reviews:</h1>
+
+{% for r in event.reviews %}
+<div class="card mb-4 shadow">
+    <div class="card-body">
+        {{ r.text }}
+    </div>
+    <div class="card-footer">
+        <span classs="d-flex align-items-center">
+            {% for n in range(r.rating) %}
+                <i class="fas fa-star"></i>
+            {% endfor %}
+            {% for n in range(5 - r.rating) %}
+                <i class="far fa-star"></i>
+            {% endfor %}
+        </span>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

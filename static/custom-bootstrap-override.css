@@ -1,4 +1,4 @@
-.bg-primary .btn-primary .btn-primary:hover{
+.bg-primary, .btn-primary, .btn-primary:hover{
     border-color: #D50505;
     background-color: #D50505 !important;
 

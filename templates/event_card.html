@@ -1,24 +1,26 @@
-<div class="card mb-4 shadow">
-    <!-- <div class="card-header"> -->
-        <img src="static/{{ context.image_name }}" class="card-img-top" alt="...">
-    <!-- </div> -->
-    <div class="sep"></div>
-    <div class="card-body">
-      <h5 class="card-title ">{{ context.title }}</h5>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="far fa-clock"></i> Total duration: {{context.duration }}</li>
-        <li class="list-group-item"><i class="far fa-map"></i> {{ context.location }}</li>
-        <ul class="list-group-item d-flex justify-content-between align-items-center">
-            <span>
-                {% for n in range(context.star_rating) %}
-                    <i class="fas fa-star"></i>
-                {% endfor %}
-                {% for n in range(5 - context.star_rating) %}
-                    <i class="far fa-star"></i>
-                {% endfor %}
-            </span>
-            <span class="badge bg-secondary small rounded-pill">{{ context.reviews }} reviews</span>
+<a href="event/{{event.id}}" style="color: inherit; text-decoration: none;">
+    <div class="card mb-4 shadow">
+        <!-- <div class="card-header"> -->
+            <img src="static/{{ event.image_path }}" class="card-img-top" alt="...">
+        <!-- </div> -->
+        <div class="sep"></div>
+        <div class="card-body">
+        <h5 class="card-title ">{{ event.name }}</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="far fa-clock"></i> Total duration: {{event.duration }}</li>
+            <li class="list-group-item"><i class="far fa-map"></i> {{ event.location_name }}</li>
+            <ul class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    {% for n in range(event.rating) %}
+                        <i class="fas fa-star"></i>
+                    {% endfor %}
+                    {% for n in range(5 - event.rating) %}
+                        <i class="far fa-star"></i>
+                    {% endfor %}
+                </span>
+                <span class="badge bg-secondary small rounded-pill">{{ event.nreviews }} reviews</span>
+            </ul>
         </ul>
-      </ul>
+        </div>
     </div>
-  </div>
+</a>
