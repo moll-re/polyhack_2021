@@ -4,51 +4,83 @@ import random
 def populate_data(Users, Events):
     Events.add_event(
         id = 1,
-        name = "a",
-        location_name = 'Center of Switzerland',
-        location_coordinates = [46.8132, 8.2242],
+        name = "Polyhack 2021",
+        location_name = 'Polyhack',
+        location_coordinates = [46.3667, 7.445683],
         date = datetime.date.today() - datetime.timedelta(days=100),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "Be part of Switzerland's most fun and personal hackathon experience!"
         )
     Events.add_event(
         id = 2,
-        name = "b",
-        location_name = 'Center of Switzerland',
-        location_coordinates = [46, 8],
+        name = "Swiss National Museum Zürich",
+        location_name = 'Zürich',
+        location_coordinates = [46.368, 7.445683],
         date = datetime.date.today() - datetime.timedelta(days=1),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "Explore Switzerland's rich cultural history in the unique collection of the Swiss National Museum."
         )
     Events.add_event(
         id = 3,
-        name = "kfkslkjdf",
-        location_name = 'Center of Switzerland',
-        location_coordinates = [46.8132, 9],
+        name = "Paragliding in Interlaken",
+        location_name = 'Interlaken',
+        location_coordinates = [46.68387, 7.86638],
         date = datetime.date.today() - datetime.timedelta(days=2),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "Fly high between the lakes in Interlaken."
         )
     Events.add_event(
         id = 4,
-        name = "s",
-        location_name = 'Center of Switzerland',
-        location_coordinates = [47, 8.2242],
+        name = "City Tour Lugano",
+        location_name = 'Lugano',
+        location_coordinates = [46.01008, 8.96004],
         date = datetime.date.today() - datetime.timedelta(days=3),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "Explore one of Ticino's gems in the deep south of Switzerland."
         )
     Events.add_event(
         id = 5,
-        name = "d",
-        location_name = 'Center of Switzerland',
-        location_coordinates = [40.8132, 8.2242],
+        name = "City Tour Lucerne",
+        location_name = 'Lucerne',
+        location_coordinates = [47.05048, 8.30635],
         date = datetime.date.today() - datetime.timedelta(days=56),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "See the iconic bridge of Lucerne and enjoy a boat tour on the Vierwaldstätter Lake."
         )
     Events.add_event(
         id = 6,
-        name = "kfkslkjdf",
-        location_name = 'Zermatt',
-        location_coordinates = [46.11654, 10.445683],
+        name = "Hike at Oeschinen Lake",
+        location_name = 'Oeschinen Lake',
+        location_coordinates = [46.492331364, 7.722830442],
         date = datetime.date.today(),
-        description = "slkjfslkdfjsldkfjsd"
+        description = "Take a hike around the beautiful scenery around the Oeschinen Lake."
+        )
+        Events.add_event(
+        id = 7,
+        name = "Hike at Aletschglacier",
+        location_name = 'Aletschglacier',
+        location_coordinates = [46.438664912, 8.072999708],
+        date = datetime.date.today(),
+        description = "Be adventurous by hiking the largest Glacier of the Alps."
+        )
+        Events.add_event(
+        id = 8,
+        name = "Ski at Engelberg",
+        location_name = 'Engelberg',
+        location_coordinates = [46.82107, 8.40133],
+        date = datetime.date.today(),
+        description = "Enjoy a Ski weekend at the Engelberg Ski Resort."
+        )
+        Events.add_event(
+        id = 9,
+        name = "City Tour Davos",
+        location_name = 'Davos',
+        location_coordinates = [46.80429, 9.83723],
+        date = datetime.date.today(),
+        description = "See the winter wonderous municipality Davos in East Switzerland."
+        )
+        Events.add_event(
+        id = 10,
+        name = "a",
+        location_name = 'Zermatt',
+        location_coordinates = [46.11654, 7.445683],
+        date = datetime.date.today() - datetime.timedelta(days=100),
+        description = "Enjoy skiing with view on one of Switzerland's most iconic mountain peaks."
         )
 
     Users.add_user(
