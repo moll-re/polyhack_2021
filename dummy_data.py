@@ -116,5 +116,5 @@ def populate_data(Users, Events):
     u = Users.get_by_id(239842123)
 
     for e in Events:
-        e.add_review(text="Nice view, good weather. Would recommend.", rating=random.randint(0,5))
+        e.add_review(text="Nice view, good weather. Would recommend.", rating=random.randint(4,5))
         u.travel_history.append(e)
