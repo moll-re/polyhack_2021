@@ -76,7 +76,7 @@ def populate_data(Users, Events):
         )
         Events.add_event(
         id = 10,
-        name = "a",
+        name = "Zermatt",
         location_name = 'Zermatt',
         location_coordinates = [46.11654, 7.445683],
         date = datetime.date.today() - datetime.timedelta(days=10),
