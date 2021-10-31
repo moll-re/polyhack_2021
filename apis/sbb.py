@@ -27,8 +27,26 @@ class SBBWrapper:
         return auth
 
 
-#Example
+sbb = SBBWrapper()
+print(sbb.wrapper.get('route-offers'))
+
+
+"""
+tripQuery = {
+    'date' : '2021-10-31',
+    'time' : '19:44',
+    'originId' : "8591122",
+    'destinationId' : "8591123",
+}
+
+sbb = SBBWrapper()
+print(sbb.wrapper.trips.get(params=tripQuery))
+"""
+
+"""
+#Example for locations
 query = {'name':'Kreuzlingen'}
 
 sbb = SBBWrapper()
 print(sbb.wrapper.locations.get(params=query))
+"""
