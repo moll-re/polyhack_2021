@@ -8,7 +8,7 @@ class Event:
     description = ""
     reviews = []
     category = []
-    weather_requirements = 0
+    weather_requirements = 100 # highest tolerance
     date = ""
     image_path = "fallback.jpg"
     activity_duration = "" # datetime object
@@ -87,4 +87,15 @@ class Events:
         return None
 
     def __iter__(self):
+        # todo fix broken iterator
         return iter(self._events)
+
+
+    def filter_events(self, user, weather_score):
+        # implement user preferences, geographic restrictions and weather conditions
+
+        for e in self._events:
+            if e.weather_requirements <= weather_score \
+                or abs(e.location_coordinates[0] - user.home_coordinates[0]) + abs(e.location_coordinates[1] - user.home_coordinates[1]) >= 15 \
+                    or not e.trip_is_good:
+                        print("This event should be removed")

@@ -24,12 +24,18 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route("/")
 def index():
     session["user_id"] = 239842123 # a perfectly safe login, hem hem
+    user = USERBASE.get_by_id(session["user_id"])
     wscore = WEATHERCALCULATOR.calc_weather_score(EVENTBASE.get_by_id(1))
     wscore = 10 # hard coded for positive pitch experience
     weather_icon = ["☀️","🌥️","🌧️","⛈️"][int(wscore/25)]
     weather_string = ["looks great!", "could be better..."][int(wscore/50)]
+
+
+    EVENTBASE.filter_events(user, wscore)
+
+    
     context = {
-        "user" : USERBASE.get_by_id(session["user_id"]).name,
+        "user" : user.name,
         "weather_emoji" : weather_icon,
         "weather_string" : weather_string
     }
@@ -57,7 +63,7 @@ def profile():
         colorway=["#D50505", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
     )
     fig.update_yaxes(
-        title_text = "g of CO2 saved",
+        title_text = "Kg of CO2 saved",
         title_standoff = 5)
     fig.add_trace(go.Bar(x=days, y=co2_savings))
     plot_div = plot(fig, output_type='div', include_plotlyjs=False)
@@ -98,14 +104,6 @@ def event_booked_view(event_id):
     else:
         abort(404)
 
-
-
-@app.template_filter('strftime')
-def _jinja2_filter_datetime(date, fmt=None):
-    date = dateutil.parser.parse(date)
-    native = date.replace(tzinfo=None)
-    format='%b %d, %Y'
-    return native.strftime(format) 
 
 #############################
 ## And, liftoff!
