@@ -22,7 +22,7 @@ $(window).on("scroll", function () {
 function callData(counter) {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8000/get_event?id=" + counter,
+        url: "/get_event?id=" + counter,
         dataType: "html",
         success: function (result) {
             //alert(result[0]);

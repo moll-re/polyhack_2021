@@ -50,7 +50,7 @@ def populate_data(Users, Events):
         date = datetime.date.today(),
         description = "Take a hike around the beautiful scenery around the Oeschinen Lake."
         )
-        Events.add_event(
+    Events.add_event(
         id = 7,
         name = "Hike at Aletschglacier",
         location_name = 'Aletschglacier',
@@ -58,7 +58,7 @@ def populate_data(Users, Events):
         date = datetime.date.today(),
         description = "Be adventurous by hiking the largest Glacier of the Alps."
         )
-        Events.add_event(
+    Events.add_event(
         id = 8,
         name = "Ski at Engelberg",
         location_name = 'Engelberg',
@@ -66,7 +66,7 @@ def populate_data(Users, Events):
         date = datetime.date.today(),
         description = "Enjoy a Ski weekend at the Engelberg Ski Resort."
         )
-        Events.add_event(
+    Events.add_event(
         id = 9,
         name = "City Tour Davos",
         location_name = 'Davos',
@@ -74,7 +74,7 @@ def populate_data(Users, Events):
         date = datetime.date.today(),
         description = "See the winter wonderous municipality Davos in East Switzerland."
         )
-        Events.add_event(
+    Events.add_event(
         id = 10,
         name = "Zermatt",
         location_name = 'Zermatt',
@@ -95,7 +95,6 @@ def populate_data(Users, Events):
         )
     u = Users.get_by_id(239842123)
 
-    for e in Events:
+    for e in Events[2:5]:
         e.add_review(text="Nice view, good weather. Would recommend.", rating=random.randint(0,5))
         u.travel_history.append(e)
-    

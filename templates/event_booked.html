@@ -1,0 +1,53 @@
+{# emulate a booking overview which shows the connection#}
+{% extends "base.html" %}
+{% block content %}
+<script>
+    $( document ).ready(function() {     
+    $('#booking-info').delay(1500).show(0);
+    $('#loading-animation').delay(1500).hide(0);  
+
+    }); 
+</script>
+
+
+<div class="position-relative" style="height: 100vh;" id="loading-animation">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          
+    </div>
+</div>
+
+<div id="booking-info" style="display:none;">
+<h1 class="display-2">{{ event.name }}</h1>
+
+<div class="card mb-4 shadow">
+    <div class="card-body">
+        <h1 class="card-title">Trip outbound</h1>
+        <img src="/static/trip_to.jpg" width="100%">
+    </div>
+</div>
+
+<div class="card mb-4 shadow">
+    <div class="card-body">
+        <h1 class="card-title">Activity</h1>
+        <img src="/static/bettmeralp_weg.png" width="100%">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Coordinates:</b> 46.386321, 8.057643</li>
+            <li class="list-group-item"><b>Start:</b> Bettmeralp, Bergstation Luftseilbahn</li>
+            <li class="list-group-item"><b>Route:</b> Bergstation Luftseilbahn Bettmeralp – Bettmersee – Blausee – Biel – Hohbalm – Roti Chumma – Märjelensee – Obers Tälli (Tunnel) – Fiescheralp - Bettmeralp</li>
+            <li class="list-group-item"><b>Goal:</b> Bettmeralp, Bergstation Luftseilbahn</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mb-4 shadow">
+    <div class="card-body">
+        <h1 class="card-title">Trip inbound</h1>
+        <img src="/static/trip_back.jpg" width="100%">
+    </div>
+</div>
+</div>
+
+{% endblock %}

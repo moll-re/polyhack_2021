@@ -25,11 +25,13 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 def index():
     session["user_id"] = 239842123 # a perfectly safe login, hem hem
     wscore = WEATHERCALCULATOR.calc_weather_score(EVENTBASE.get_by_id(1))
-    print(wscore)
+    wscore = 10 # hard coded for positive pitch experience
     weather_icon = ["☀️","🌥️","🌧️","⛈️"][int(wscore/25)]
-    print(weather_icon)
+    weather_string = ["looks great!", "could be better..."][int(wscore/50)]
     context = {
-        "user" : USERBASE.get_by_id(session["user_id"]).name
+        "user" : USERBASE.get_by_id(session["user_id"]).name,
+        "weather_emoji" : weather_icon,
+        "weather_string" : weather_string
     }
     return render_template("event_overview.html", context=context)
 
@@ -54,6 +56,9 @@ def profile():
         plot_bgcolor='rgba(0,0,0,0)',
         colorway=["#D50505", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
     )
+    fig.update_yaxes(
+        title_text = "g of CO2 saved",
+        title_standoff = 5)
     fig.add_trace(go.Bar(x=days, y=co2_savings))
     plot_div = plot(fig, output_type='div', include_plotlyjs=False)
 
@@ -82,7 +87,17 @@ def event_detail(event_id):
     else:
         abort(404)
 
+@app.route("/event/<event_id>/booked")
+def event_booked_view(event_id):
+    uid = session["user_id"]
+    event = EVENTBASE.get_by_id(int(event_id))
+    user = USERBASE.get_by_id(int(uid))
+    user.travel_history.append(event)
+    if event:
+        return render_template("event_booked.html", event=event)
+    else:
+        abort(404)
 
 #############################
 ## And, liftoff!
-app.run(port=8000, debug=True)
+app.run(host="0.0.0.0",port=8000, debug=True)
