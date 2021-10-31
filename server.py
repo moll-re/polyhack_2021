@@ -98,6 +98,15 @@ def event_booked_view(event_id):
     else:
         abort(404)
 
+
+
+@app.template_filter('strftime')
+def _jinja2_filter_datetime(date, fmt=None):
+    date = dateutil.parser.parse(date)
+    native = date.replace(tzinfo=None)
+    format='%b %d, %Y'
+    return native.strftime(format) 
+
 #############################
 ## And, liftoff!
 app.run(host="0.0.0.0",port=8000, debug=True)
