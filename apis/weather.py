@@ -28,7 +28,7 @@ class WeatherWrapper:
 
 class WeatherScoreCalculator:
     def calc_weather_score(self, event):
-        now = datetime.datetime.now().replace(microsecond=0).isoformat()
+        now = datetime.datetime.now().replace(microsecond=0).isoformat() + datetime.timedelta(days=1)
         location = event.location_coordinates
         location_string = f'{location[0]}'+f','+f'{location[1]}'
 
