@@ -15,7 +15,7 @@ def populate_data(Users, Events):
         name = "Swiss National Museum Zürich",
         location_name = 'Zürich',
         location_coordinates = [46.368, 7.445683],
-        date = datetime.date.today() - datetime.timedelta(days=1),
+        date = datetime.date.today() - datetime.timedelta(days=80),
         description = "Explore Switzerland's rich cultural history in the unique collection of the Swiss National Museum."
         )
     Events.add_event(
@@ -23,7 +23,7 @@ def populate_data(Users, Events):
         name = "Paragliding in Interlaken",
         location_name = 'Interlaken',
         location_coordinates = [46.68387, 7.86638],
-        date = datetime.date.today() - datetime.timedelta(days=2),
+        date = datetime.date.today() - datetime.timedelta(days=100),
         description = "Fly high between the lakes in Interlaken."
         )
     Events.add_event(
@@ -31,7 +31,7 @@ def populate_data(Users, Events):
         name = "City Tour Lugano",
         location_name = 'Lugano',
         location_coordinates = [46.01008, 8.96004],
-        date = datetime.date.today() - datetime.timedelta(days=3),
+        date = datetime.date.today() - datetime.timedelta(days=100),
         description = "Explore one of Ticino's gems in the deep south of Switzerland."
         )
     Events.add_event(
@@ -39,7 +39,7 @@ def populate_data(Users, Events):
         name = "City Tour Lucerne",
         location_name = 'Lucerne',
         location_coordinates = [47.05048, 8.30635],
-        date = datetime.date.today() - datetime.timedelta(days=56),
+        date = datetime.date.today() - datetime.timedelta(days=20),
         description = "See the iconic bridge of Lucerne and enjoy a boat tour on the Vierwaldstätter Lake."
         )
     Events.add_event(
@@ -47,7 +47,7 @@ def populate_data(Users, Events):
         name = "Hike at Oeschinen Lake",
         location_name = 'Oeschinen Lake',
         location_coordinates = [46.492331364, 7.722830442],
-        date = datetime.date.today(),
+        date = datetime.date.today(days=20),
         description = "Take a hike around the beautiful scenery around the Oeschinen Lake."
         )
         Events.add_event(
@@ -55,7 +55,7 @@ def populate_data(Users, Events):
         name = "Hike at Aletschglacier",
         location_name = 'Aletschglacier',
         location_coordinates = [46.438664912, 8.072999708],
-        date = datetime.date.today(),
+        date = datetime.date.today(days=20),
         description = "Be adventurous by hiking the largest Glacier of the Alps."
         )
         Events.add_event(
@@ -63,7 +63,7 @@ def populate_data(Users, Events):
         name = "Ski at Engelberg",
         location_name = 'Engelberg',
         location_coordinates = [46.82107, 8.40133],
-        date = datetime.date.today(),
+        date = datetime.date.today(days=10),
         description = "Enjoy a Ski weekend at the Engelberg Ski Resort."
         )
         Events.add_event(
@@ -71,7 +71,7 @@ def populate_data(Users, Events):
         name = "City Tour Davos",
         location_name = 'Davos',
         location_coordinates = [46.80429, 9.83723],
-        date = datetime.date.today(),
+        date = datetime.date.today(days=10),
         description = "See the winter wonderous municipality Davos in East Switzerland."
         )
         Events.add_event(
@@ -79,7 +79,7 @@ def populate_data(Users, Events):
         name = "a",
         location_name = 'Zermatt',
         location_coordinates = [46.11654, 7.445683],
-        date = datetime.date.today() - datetime.timedelta(days=100),
+        date = datetime.date.today() - datetime.timedelta(days=10),
         description = "Enjoy skiing with view on one of Switzerland's most iconic mountain peaks."
         )
 
