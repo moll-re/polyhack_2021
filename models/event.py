@@ -63,6 +63,7 @@ class Review:
     def add_photo(self, photo):
         pass
 
+
 class Events:
     _events = []
 

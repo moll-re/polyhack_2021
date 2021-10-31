@@ -33,16 +33,18 @@ class WeatherScoreCalculator:
         location_string = f'{location[0]}'+f','+f'{location[1]}'
 
         weather = WeatherWrapper()
-        raw_weather_data = weather.wrapper.get( now + 'ZP1D:PT3H/weather_code_6h:idx/'+ location_string + '/json')
-        raw_extracted_weather = raw_weather_data['data'][0]['coordinates'][0]['dates']
+        try:
+            raw_weather_data = weather.wrapper.get( now + 'ZP1D:PT3H/weather_code_6h:idx/'+ location_string + '/json')
+            raw_extracted_weather = raw_weather_data['data'][0]['coordinates'][0]['dates']
 
-        # Weather Score Calculation
-        weather_score = []
-        for weather_dict in raw_extracted_weather:
-            weather_score.append(weather_dict['value'])
-        weather_score = np.array(weather_score)
-        mean_weather_score = weather_score.mean()
-
+            # Weather Score Calculation
+            weather_score = []
+            for weather_dict in raw_extracted_weather:
+                weather_score.append(weather_dict['value'])
+            weather_score = np.array(weather_score)
+            mean_weather_score = weather_score.mean()
+        except:
+            mean_weather_score = 20
         return mean_weather_score
 
 

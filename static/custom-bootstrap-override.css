@@ -12,6 +12,10 @@
 .content {
     margin-top: 5rem;
 }
+
+.fa-star{
+  color: #D50505;
+}
 /*
 *
 * ==========================================
@@ -62,8 +66,10 @@
 
 .ml4 .letters {
     position: absolute;
-    margin: auto;
+    margin-left: 0.8rem;
+    margin-top: 0.12rem;
+    /* margin: auto;
     left: 6.7em;
-    top: 0.75em;
+    top: 0.75em; */
     opacity: 0; 
 }
