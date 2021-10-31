@@ -5,7 +5,7 @@ def populate_data(Users, Events):
     Events.add_event(
         id = 1,
         name = "Polyhack 2021",
-        location_name = 'Polyhack',
+        location_name = 'SPH Zentrum, Zürich',
         location_coordinates = [46.3667, 7.445683],
         date = datetime.date.today() - datetime.timedelta(days=100),
         description = "Be part of Switzerland's most fun and personal hackathon experience!"
@@ -76,7 +76,7 @@ def populate_data(Users, Events):
         )
     Events.add_event(
         id = 10,
-        name = "a",
+        name = "Zermatt",
         location_name = 'Zermatt',
         location_coordinates = [46.11654, 7.445683],
         date = datetime.date.today() - datetime.timedelta(days=10),
