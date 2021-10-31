@@ -28,6 +28,8 @@ function callData(counter) {
             //alert(result[0]);
             $(result).appendTo('.list');
         },
-        error: function (result) {}
+        error: function (result) {
+            return;
+        }
     });
 }

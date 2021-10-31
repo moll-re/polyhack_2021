@@ -1,18 +1,22 @@
-from flask import Flask, render_template, request, request, session
-import random
-
-from apis.interactive_maps import SwissMap
-from models.user import Users
-from models.event import Events
+from flask import Flask, render_template, request, request, session, abort
 import plotly.graph_objects as go
 from plotly.offline import plot
+
+
+from apis.interactive_maps import SwissMap
+from apis.weather import WeatherScoreCalculator
+from models.user import Users
+from models.event import Events
 
 USERBASE = Users()
 MAP = SwissMap()
 EVENTBASE = Events()
-
+WEATHERCALCULATOR = WeatherScoreCalculator()
 import dummy_data
 dummy_data.populate_data(USERBASE, EVENTBASE)
+
+
+
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
@@ -20,15 +24,14 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route("/")
 def index():
     session["user_id"] = 239842123 # a perfectly safe login, hem hem
+    wscore = WEATHERCALCULATOR.calc_weather_score(EVENTBASE.get_by_id(1))
+    print(wscore)
+    weather_icon = ["☀️","🌥️","🌧️","⛈️"][int(wscore/25)]
+    print(weather_icon)
     context = {
-        "title" : f"Event title {id}",
-        "image_name" : "fallback.jpg",
-        "star_rating" : random.randint(1,4),
-        "reviews" : random.randint(10,30),
         "user" : USERBASE.get_by_id(session["user_id"]).name
     }
     return render_template("event_overview.html", context=context)
-
 
 
 @app.route("/profile")
@@ -61,19 +64,25 @@ def profile():
     return render_template("user_detail.html", context=context, user=user)
 
 
-
 @app.route("/get_event")
 def get_event():
-    id = request.args.get("id", type = int)
-    context = {
-        "title" : f"Event title {id}",
-        "image_name" : "fallback.jpg",
-        "star_rating" : random.randint(1,4),
-        "reviews" : random.randint(10,30),
-        "user" : "Remy"
-    }
-    return render_template("event_card.html", context=context)
+    eid = request.args.get("id", type = int)
+    event = EVENTBASE.get_by_id(eid)
+    if event:
+        return render_template("event_card.html", event=event)
+    else:
+        abort(404)
 
 
+@app.route("/event/<event_id>")
+def event_detail(event_id):
+    event = EVENTBASE.get_by_id(int(event_id))
+    if event:
+        return render_template("event_detail.html", event=event)
+    else:
+        abort(404)
 
+
+#############################
+## And, liftoff!
 app.run(port=8000, debug=True)
