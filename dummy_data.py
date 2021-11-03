@@ -105,7 +105,7 @@ def populate_data(Users, Events):
 
     Users.add_user(
         id=239842123,
-        name="Clara",
+        name="User",
         event_preferences=["hiking","skiing"],
         event_blacklist = [],
         home_coordinates=[0,0],
